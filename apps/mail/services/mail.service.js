@@ -2,6 +2,9 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
+const EMAIL_KEY = 'emailDB'
+_createEmails()
+
 // hard coded user, no need to build login system
 
 const loggedinUser = {
@@ -16,10 +19,6 @@ const filterBy = {
   isStared: true, // (optional property, if missing: show all)
   lables: ['important', 'romantic'], // has any of the labels
 }
-
-const EMAIL_KEY = 'emailDB'
-
-_createEmails()
 
 export const mailService = {
   query,
@@ -87,7 +86,6 @@ function getDefaultFilter() {
 }
 
 function getFilterFromSearchParams(searchParams) {
-  // return Object.fromEntries(searchParams)
   const txt = searchParams.get('txt') || ''
   const minSpeed = searchParams.get('minSpeed') || ''
   return {
