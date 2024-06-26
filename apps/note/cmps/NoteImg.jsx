@@ -1,3 +1,3 @@
-export function Noteimg() {
+export function NoteImg() {
   return <div>Noteimg</div>
 }

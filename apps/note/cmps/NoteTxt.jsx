@@ -1,3 +1,3 @@
-export function NoteTxt() {
-  return <div>nNoteTxt</div>
+export function NoteTxt(props) {
+  return <div>nNoteTxt{console.log('props :', props)}</div>
 }
