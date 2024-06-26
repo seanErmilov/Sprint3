@@ -2,18 +2,6 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
-const email = {
-  id: 'e101',
-  createdAt: 1551133930500,
-  subject: 'Miss you!',
-  body: 'Would love to catch up sometimes',
-  isRead: false,
-  sentAt: 1551133930594,
-  removedAt: null,
-  from: 'momo@momo.com',
-  to: 'user@appsus.com',
-}
-
 // hard coded user, no need to build login system
 
 const loggedinUser = {
@@ -45,14 +33,15 @@ export const mailService = {
 
 function query(filterBy = {}) {
   return storageService.query(EMAIL_KEY).then((emails) => {
-    console.log('emails:', emails)
-
     if (filterBy.subject) {
       const regExp = new RegExp(filterBy.subject, 'i')
       emails = emails.filter((email) => regExp.test(email.subject))
     }
-    if (filterBy.minSpeed) {
-      emails = emails.filter((email) => email.speed >= filterBy.minSpeed)
+    if (filterBy.isRead !== undefined) {
+      emails = emails.filter((email) => email.isRead === filterBy.isRead)
+    }
+    if (filterBy.isStared !== undefined) {
+      emails = emails.filter((email) => email.isStared === filterBy.isStared)
     }
     return emails
   })
@@ -76,7 +65,7 @@ function save(email) {
   }
 }
 
-function getEmptyMail() {
+function getEmptyEmail() {
   return {
     id: '',
     createdAt: Date.now(),
