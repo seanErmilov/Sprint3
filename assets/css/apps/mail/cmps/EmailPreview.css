@@ -1,0 +1,37 @@
+.email-preview {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease;
+}
+
+.email-preview:hover {
+  background-color: #f1f1f1;
+}
+
+.email-preview-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.email-from {
+  font-weight: bold;
+}
+
+.email-date {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.email-subject {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.email-body-snippet {
+  font-size: 0.9em;
+  color: #555;
+}
