@@ -1,1 +1,13 @@
- /* mail list */
+/* mail list */
+
+.email-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-preview {
+  border: 1px solid black;
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px 0;
+}
