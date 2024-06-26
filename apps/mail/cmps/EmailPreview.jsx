@@ -2,9 +2,9 @@ import { utilService } from '../../../services/util.service.js'
 
 import { mailService } from '../services/mail.service.js'
 
-export function EmailPreview({ email }) {
+export function EmailPreview({ email, onClick }) {
   return (
-    <div className='email-preview'>
+    <div className='email-preview' onClick={onClick}>
       <div className='email-preview-header'>
         <span className='email-from'>{email.from}</span>
         <span className='email-date'>

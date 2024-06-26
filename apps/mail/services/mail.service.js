@@ -49,7 +49,7 @@ function query(filterBy = {}) {
 function get(emailId) {
   return storageService
     .get(EMAIL_KEY, emailId)
-    .then((email) => _setNextPrevCarId(email))
+    .then((email) => _setNextPrevEmailId(email))
 }
 
 function remove(emailId) {
@@ -158,7 +158,7 @@ function _createEmails() {
   }
 }
 
-function _setNextPrevCarId(email) {
+function _setNextPrevEmailId(email) {
   return storageService.query(EMAIL_KEY).then((emails) => {
     const emailIdx = emails.findIndex((currEmail) => currEmail.id === email.id)
     const nextEmail = emails[emailIdx + 1] ? emails[emailIdx + 1] : emails[0]
@@ -169,4 +169,15 @@ function _setNextPrevCarId(email) {
     email.prevCarId = prevEmail.id
     return email
   })
+}
+
+function getFilterFromSearchParams(searchParams) {
+  const txt = searchParams.get('txt') || ''
+  const isRead = searchParams.get('isRead') === 'true'
+  const isStared = searchParams.get('isStared') === 'true'
+  return {
+    txt,
+    isRead,
+    isStared,
+  }
 }
