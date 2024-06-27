@@ -85,14 +85,14 @@ function getDefaultFilter() {
   }
 }
 
-function getFilterFromSearchParams(searchParams) {
-  const txt = searchParams.get('txt') || ''
-  const minSpeed = searchParams.get('minSpeed') || ''
-  return {
-    txt,
-    minSpeed,
-  }
-}
+// function getFilterFromSearchParams(searchParams) {
+//   const txt = searchParams.get('txt') || ''
+//   const minSpeed = searchParams.get('minSpeed') || ''
+//   return {
+//     txt,
+//     minSpeed,
+//   }
+// }
 
 function _createEmails() {
   let emails = utilService.loadFromStorage(EMAIL_KEY)

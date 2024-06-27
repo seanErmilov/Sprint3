@@ -1,6 +1,6 @@
 import { EmailPreview } from './EmailPreview.jsx'
 
-export function EmailList({ emails, onSelectEmailId }) {
+export function EmailList({ emails, onSelectEmailId, onRemoveEmail }) {
   if (!emails || emails.length === 0) return <div>No emails found</div>
 
   return (
@@ -10,6 +10,7 @@ export function EmailList({ emails, onSelectEmailId }) {
           key={email.id}
           email={email}
           onClick={() => onSelectEmailId(email.id)}
+          onRemoveEmail={onRemoveEmail}
         />
       ))}
     </section>
