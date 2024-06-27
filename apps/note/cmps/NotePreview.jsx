@@ -10,7 +10,7 @@ export function NotePreview({ note }) {
       return <NoteTxt {...note} />
     case 'NoteImg':
       return <NoteImg {...note} />
-    case 'NoteTodo':
+    case 'NoteTodos':
       return <NoteTodos {...note} />
     default:
       null

@@ -1,9 +1,5 @@
 import { NoteList } from '../cmps/NoteList.jsx'
 import { noteService } from '../services/note.service.js'
-import {
-  showErrorMsg,
-  showSuccessMsg,
-} from '../../../services/event-bus.service.js'
 
 const { useEffect, useState } = React
 const { Link, useSearchParams } = ReactRouterDOM
@@ -28,6 +24,7 @@ export function NoteIndex() {
       .remove(noteId)
       .then(() => {
         setNotes((notes) => notes.filter((note) => note.id !== noteId))
+        console.log(`Note (${noteId}) removed successfully!`)
         showSuccessMsg(`Note (${noteId}) removed successfully!`)
       })
       .catch((err) => {

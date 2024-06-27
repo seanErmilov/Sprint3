@@ -1,1 +1,13 @@
- /* note list */
+/* note list */
+.note-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+  list-style: none;
+  margin: 0;
+}
+.note-list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

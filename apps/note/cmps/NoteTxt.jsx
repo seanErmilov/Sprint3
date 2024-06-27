@@ -1,3 +1,5 @@
 export function NoteTxt(props) {
-  return <div>nNoteTxt{console.log('props :', props)}</div>
+  const { info } = props
+  const { txt } = info
+  return <div className='note-txt'>{txt}</div>
 }

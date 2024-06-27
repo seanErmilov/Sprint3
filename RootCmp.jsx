@@ -14,7 +14,6 @@ export function App() {
     <Router>
       <section className='app'>
         <AppHeader />
-        <EmailIndex />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
