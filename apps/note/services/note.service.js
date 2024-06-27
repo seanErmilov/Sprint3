@@ -39,11 +39,9 @@ function remove(noteId) {
 }
 
 function save(note) {
-  console.log('note :', note)
   if (note.id) {
     return storageService.put(NOTE_KEY, note)
   } else {
-    console.log('note :', note)
     return storageService.post(NOTE_KEY, note)
   }
 }
@@ -53,7 +51,7 @@ function getEmptyNote() {
     id: '',
     createdAt: Date.now(),
     type: 'NoteTxt',
-    isPinned: true,
+    isPinned: false,
     style: { backgroundColor: '#00d' },
     info: { txt: '', title: '' },
   }
@@ -92,7 +90,8 @@ function _createNotes() {
         type: 'NoteImg',
         isPinned: false,
         info: {
-          url: 'https://images.unsplash.com/photo-1591779051696-1c3fa1469a79?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D',
+          imgUrl:
+            'https://images.unsplash.com/photo-1591779051696-1c3fa1469a79?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D',
           title: 'Bobi and Me',
         },
         style: { backgroundColor: '#00d' },
@@ -105,12 +104,88 @@ function _createNotes() {
         info: {
           title: 'Get my stuff together',
           todos: [
-            { txt: 'Driving license ', doneAt: null },
+            { txt: 'Driving license', doneAt: null },
             { txt: 'Coding power', doneAt: 187111111 },
           ],
         },
       },
+      {
+        id: 'n104',
+        createdAt: 1112225,
+        type: 'NoteTxt',
+        isPinned: false,
+        style: { backgroundColor: '#0d0' },
+        info: { txt: 'Learning JavaScript' },
+      },
+      {
+        id: 'n105',
+        createdAt: 1112226,
+        type: 'NoteImg',
+        isPinned: true,
+        info: {
+          imgUrl:
+            'https://images.unsplash.com/photo-1603398938378-7d2f6b5a3b7d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2NlbmljfGVufDB8fDB8fHww',
+          title: 'Nature Bliss',
+        },
+        style: { backgroundColor: '#0d0' },
+      },
+      {
+        id: 'n106',
+        createdAt: 1112227,
+        type: 'NoteTodos',
+        isPinned: true,
+        info: {
+          title: 'Project Tasks',
+          todos: [
+            { txt: 'Complete UI design', doneAt: null },
+            { txt: 'Setup backend server', doneAt: 187222222 },
+            { txt: 'Deploy application', doneAt: null },
+          ],
+        },
+      },
+      {
+        id: 'n107',
+        createdAt: 1112228,
+        type: 'NoteTxt',
+        isPinned: false,
+        style: { backgroundColor: '#d00' },
+        info: { txt: 'Shopping List' },
+      },
+      {
+        id: 'n108',
+        createdAt: 1112229,
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+          imgUrl:
+            'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D',
+          title: 'Delicious Meals',
+        },
+        style: { backgroundColor: '#d00' },
+      },
+      {
+        id: 'n109',
+        createdAt: 1112230,
+        type: 'NoteTodos',
+        isPinned: false,
+        info: {
+          title: 'Workout Routine',
+          todos: [
+            { txt: 'Morning run', doneAt: null },
+            { txt: 'Gym session', doneAt: 187333333 },
+          ],
+        },
+      },
+      {
+        id: 'n110',
+        createdAt: 1112231,
+        type: 'NoteTxt',
+        isPinned: true,
+        style: { backgroundColor: '#00d' },
+        info: { txt: 'Meeting Notes' },
+      },
     ]
+
     utilService.saveToStorage(NOTE_KEY, notes)
   }
 }

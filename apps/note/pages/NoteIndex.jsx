@@ -35,7 +35,6 @@ export function NoteIndex() {
       })
   }
   function onSaveNote(newNote) {
-    console.log('newNote :', newNote)
     noteService
       .save(newNote)
       .then(() => {
