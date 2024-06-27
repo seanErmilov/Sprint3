@@ -121,23 +121,26 @@ export function NoteCreator({ onSaveNote }) {
               name='img'
               id='img'
             />
-            <h1>{noteImgUrl}</h1>
             {noteImgUrl && (
               <img src={noteImgUrl} alt='Uploaded' style={{ width: '100px' }} />
             )}
           </div>
         )}
-
-        <button name='pin' type='button' onClick={onSetPined}>
-          pin
-        </button>
-        <button type='button' onClick={onSetNoteTodos}>
-          list
-        </button>
-        <button type='button' onClick={onSetImg}>
-          img
-        </button>
-        <button>Save</button>
+        <div className='note-creator-buttons'>
+          <button name='pin' type='button' onClick={onSetPined}>
+            <img src='../../../assets/img/icon/pin.svg' alt='Pin' />
+          </button>
+          <button type='button' onClick={onSetNoteTodos}>
+            <img src='../../../assets/img/icon/check-note.svg' alt='Pin' />
+          </button>
+          <button type='button' onClick={onSetImg}>
+            <img src='../../../assets/img/icon/img-icon.svg' alt='Pin' />
+          </button>
+          <button>
+            {' '}
+            <img src='../../../assets/img/icon/done.svg' alt='Pin' />
+          </button>
+        </div>
       </form>
     </section>
   )

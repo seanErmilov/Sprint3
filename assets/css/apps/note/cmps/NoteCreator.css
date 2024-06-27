@@ -1,0 +1,66 @@
+.note-creator {
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto; /* Center horizontally */
+  border: 1px solid #e8eaed; /* White border */
+}
+
+.note-creator input {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: none;
+  color: #e8eaed; /* Text color */
+}
+
+.note-creator input:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.note-creator .note-creator-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.note-creator .note-creator-buttons button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* Make the button round */
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.note-creator .note-creator-buttons button img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 50%; /* Ensure the image inside the button is also round */
+  display: block; /* Ensures the image behaves as a block element */
+}
+
+.note-creator .note-creator-buttons button:last-child {
+  margin-right: 0;
+}
+
+.note-creator .note-creator-buttons button:hover {
+  background: #e8eaed;
+}
+
+.note-creator img {
+  max-width: 100%;
+  border-radius: 4px;
+}

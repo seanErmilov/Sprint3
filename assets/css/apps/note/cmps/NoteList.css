@@ -1,13 +1,29 @@
-/* note list */
 .note-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-
+  grid-gap: 20px; /* Increased gap between grid items */
   list-style: none;
   margin: 0;
+  padding: 0; /* Remove default padding */
 }
-.note-list li {
+
+.note {
+  border: 1px solid #ffffff; /* White border around each note */
+  padding: 10px; /* Padding inside each note for spacing */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* Ensures the note doesn't grow beyond its content */
+  max-width: 100%; /* Ensures notes don't exceed their content width */
+}
+
+.note-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Optional: Adjust button styles */
+.note-buttons button {
+  padding: 5px 10px;
+  font-size: 14px;
 }
