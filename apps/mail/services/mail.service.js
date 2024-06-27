@@ -2,6 +2,9 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
+const EMAIL_KEY = 'emailDB'
+_createEmails()
+
 // hard coded user, no need to build login system
 
 const loggedinUser = {
@@ -16,10 +19,6 @@ const filterBy = {
   isStared: true, // (optional property, if missing: show all)
   lables: ['important', 'romantic'], // has any of the labels
 }
-
-const EMAIL_KEY = 'emailDB'
-
-_createEmails()
 
 export const mailService = {
   query,
@@ -50,7 +49,7 @@ function query(filterBy = {}) {
 function get(emailId) {
   return storageService
     .get(EMAIL_KEY, emailId)
-    .then((email) => _setNextPrevCarId(email))
+    .then((email) => _setNextPrevEmailId(email))
 }
 
 function remove(emailId) {
@@ -87,7 +86,6 @@ function getDefaultFilter() {
 }
 
 function getFilterFromSearchParams(searchParams) {
-  // return Object.fromEntries(searchParams)
   const txt = searchParams.get('txt') || ''
   const minSpeed = searchParams.get('minSpeed') || ''
   return {
@@ -114,34 +112,34 @@ function _createEmails() {
       {
         id: 'e102',
         createdAt: 1551133930500,
-        subject: 'second email',
-        body: 'blah blah blah blah blah',
+        subject: 'MAAA ???',
+        body: 'Maaa ? Maa ??? Ma ?? Ma ??? Maaa ? Maa ??? Maaaaa ?? Maa ? Ma ? Ma ??? Ma ? Ma ?? Ma ?? Ma ??? Ma ??? Ma ??? Ma ??? Ma ??? Ma ??? Ma ??? Ma ??? Ma ??? Ma ??? Ma ??? Ma ???',
         isRead: false,
         sentAt: 1551133930594,
         removedAt: null,
-        from: 'momo@momo.com',
+        from: 'MrLatin@Hapijamot.co.il',
         to: 'user@appsus.com',
       },
       {
         id: 'e103',
         createdAt: 1551133930500,
-        subject: 'third email',
-        body: 'blah blah blah blah blah',
+        subject: 'BE THE PRESIDENT',
+        body: 'Hi thier, i would like to invite you to the white house, i think you can teach us alot about react js css and html, and also i would like you to be the new president of United States of America! i think this rule is suit for ya boy',
         isRead: false,
         sentAt: 1551133930594,
         removedAt: null,
-        from: 'momo@momo.com',
+        from: 'BarakObama@USA.WhiteHouse',
         to: 'user@appsus.com',
       },
       {
         id: 'e104',
         createdAt: 1551133930500,
-        subject: 'fourth email',
-        body: 'blah blah blah blah blah',
+        subject: 'Hey Friend! do you like fame and glory?',
+        body: 'Look, iLook, I dont usually do this whole email thing, but things are a bit Messi with the Argentina team, I was looking for a new genius and YOU are the one we have been waited for! Now, I dont know your football managing credentials, but hey, you clicked on this email, didnt you? Thats gotta count for something. Besides, Maradona once said The ball doesnt know what language you speak, and Im pretty sure he wasnt talking about English. So, what do you say? up for the challenge? Lionel Messi. P.S. Dont worry, Ill teach you the secret handshake. It involves a lot of head-scratching and pointing dramatically into the distance. Looks deep, you know? ',
         isRead: false,
         sentAt: 1551133930594,
         removedAt: null,
-        from: 'momo@momo.com',
+        from: 'LionelMessi@Argentia.com',
         to: 'user@appsus.com',
       },
       {
@@ -160,7 +158,7 @@ function _createEmails() {
   }
 }
 
-function _setNextPrevCarId(email) {
+function _setNextPrevEmailId(email) {
   return storageService.query(EMAIL_KEY).then((emails) => {
     const emailIdx = emails.findIndex((currEmail) => currEmail.id === email.id)
     const nextEmail = emails[emailIdx + 1] ? emails[emailIdx + 1] : emails[0]
@@ -171,4 +169,15 @@ function _setNextPrevCarId(email) {
     email.prevCarId = prevEmail.id
     return email
   })
+}
+
+function getFilterFromSearchParams(searchParams) {
+  const txt = searchParams.get('txt') || ''
+  const isRead = searchParams.get('isRead') === 'true'
+  const isStared = searchParams.get('isStared') === 'true'
+  return {
+    txt,
+    isRead,
+    isStared,
+  }
 }
