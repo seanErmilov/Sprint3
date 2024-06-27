@@ -1,14 +1,15 @@
+const { useState, useEffect } = React
 import { EmailList } from '../cmps/EmailList.jsx'
 import { mailService } from '../services/mail.service.js'
 import { EmailFilter } from '../cmps/EmailFilter.jsx'
 import { EmailDetails } from '../cmps/EmailDetails.jsx'
-
-const { useState, useEffect } = React
+import { EmailCompose } from '../cmps/EmailCompose.jsx'
 
 export function EmailIndex() {
   const [emails, setEmails] = useState([])
   const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
   const [selectedEmailId, setSelectedEmailId] = useState(null)
+  const [isComposing, setIsComposing] = useState(false)
 
   useEffect(() => {
     loadEmails()
@@ -28,6 +29,7 @@ export function EmailIndex() {
       .remove(emailId)
       .then(() => {
         setEmails((emails) => emails.filter((email) => email.id !== emailId))
+        setSelectedEmailId(null)
       })
       .catch((err) => {
         console.log('Problems removing email:', err)
@@ -45,10 +47,11 @@ export function EmailIndex() {
   if (!emails) return <div>Loading...</div>
 
   return (
-    <section className='email-index'>
+    <section className="email-index">
       {!selectedEmailId && (
         <React.Fragment>
           <EmailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+          <button onClick={() => setIsComposing(true)}>New Email</button>
           <EmailList
             emails={emails}
             onRemoveEmail={onRemoveEmail}
@@ -61,7 +64,12 @@ export function EmailIndex() {
         <EmailDetails
           onBack={() => setSelectedEmailId(null)}
           emailId={selectedEmailId}
+          onRemoveEmail={onRemoveEmail}
         />
+      )}
+
+      {isComposing && (
+        <EmailCompose onClose={() => setIsComposing(false)} />
       )}
     </section>
   )
