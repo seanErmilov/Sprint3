@@ -1,4 +1,5 @@
 import { NoteList } from '../cmps/NoteList.jsx'
+import { NoteCreator } from '../cmps/NoteCreator.jsx'
 import { noteService } from '../services/note.service.js'
 
 const { useEffect, useState } = React
@@ -20,6 +21,7 @@ export function NoteIndex() {
   // }, [filterBy])
 
   function onRemoveNote(noteId) {
+    console.log('noteId :', noteId)
     noteService
       .remove(noteId)
       .then(() => {
@@ -30,6 +32,18 @@ export function NoteIndex() {
       .catch((err) => {
         console.log('Problems removing note:', err)
         showErrorMsg(`Having problems removing note!`)
+      })
+  }
+  function onSaveNote(newNote) {
+    console.log('newNote :', newNote)
+    noteService
+      .save(newNote)
+      .then(() => {
+        showSuccessMsg(`Note saved successfully!`)
+        loadNotes() // Reload notes after saving
+      })
+      .catch((err) => {
+        console.log('err:', err)
       })
   }
 
@@ -47,7 +61,7 @@ export function NoteIndex() {
   if (!notes) return <div>Loading...</div>
   return (
     <section className='note-index'>
-      <input placeholder="what's on your mind" type='text' />
+      <NoteCreator onSaveNote={onSaveNote} />
       {/* <NoteFilter filterBy={filterBy} onSetFilter={onSetFilter} /> */}
       <NoteList notes={notes} onRemoveNote={onRemoveNote} />
     </section>

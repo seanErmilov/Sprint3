@@ -32,12 +32,10 @@ function showUserMsg(msg) {
 }
 
 export function showSuccessMsg(txt) {
-  console.log('it in show success')
   showUserMsg({ txt, type: 'success' })
 }
 
 export function showErrorMsg(txt) {
-  console.log('it in show eror')
   showUserMsg({ txt, type: 'error' })
 }
 

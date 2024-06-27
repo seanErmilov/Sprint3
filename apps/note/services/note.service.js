@@ -39,15 +39,24 @@ function remove(noteId) {
 }
 
 function save(note) {
+  console.log('note :', note)
   if (note.id) {
     return storageService.put(NOTE_KEY, note)
   } else {
+    console.log('note :', note)
     return storageService.post(NOTE_KEY, note)
   }
 }
 
-function getEmptyNote(vendor = '', speed = '') {
-  return { vendor, speed }
+function getEmptyNote() {
+  return {
+    id: '',
+    createdAt: Date.now(),
+    type: 'NoteTxt',
+    isPinned: true,
+    style: { backgroundColor: '#00d' },
+    info: { txt: '', title: '' },
+  }
 }
 
 function getDefaultFilter() {
