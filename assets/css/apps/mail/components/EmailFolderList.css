@@ -1,0 +1,31 @@
+.email-folder-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .folder-button {
+    display: flex;
+    font-weight: 600;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 10px 10px 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 20px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    &.active {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .folder-icon {
+      margin-right: 10px;
+    }
+  }
+}

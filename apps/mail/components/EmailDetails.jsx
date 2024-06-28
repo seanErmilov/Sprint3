@@ -1,4 +1,4 @@
-import { mailService } from '../../mail/services/mail.service.js'
+import { mailService } from '../services/mail.service.js'
 
 const { useEffect, useState } = React
 
