@@ -6,14 +6,11 @@ export function EmailPreview({
   onRemoveEmail,
   handleStarClick,
 }) {
-  console.log("email", email);
   const readClass = " " + (email.isRead ? "read" : "unread");
-  console.log("readClass", readClass);
 
   const onStarClick = (e) => {
     e.stopPropagation();
     handleStarClick(email.id);
-    console.log("email.id", email.id);
   };
   return (
     <div className="email-preview" onClick={onClick}>
