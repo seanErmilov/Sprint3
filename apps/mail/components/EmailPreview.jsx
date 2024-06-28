@@ -26,7 +26,7 @@ export function EmailPreview({
             onRemoveEmail(email.id);
           }}
         >
-          Delete
+          <i class="fa-solid fa-trash-can"></i>
         </button>
       </div>
       <div className={"email-subject" + readClass}>{email.subject}</div>

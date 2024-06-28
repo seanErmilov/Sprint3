@@ -32,12 +32,12 @@
 .delete-btn {
   display: none;
   position: absolute;
-  right: 10px;
-  top: 10px;
-  background: red;
-  color: white;
+  right: 30px;
+  top: 30px;
+  background: transparent;
   border: none;
   cursor: pointer;
+  scale: 1.3;
 }
 
 .email-preview-header {
