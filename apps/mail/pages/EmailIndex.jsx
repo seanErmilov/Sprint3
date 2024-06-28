@@ -13,7 +13,6 @@ export function EmailIndex() {
   const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter());
   const [selectedEmailId, setSelectedEmailId] = useState(null);
   const [isComposing, setIsComposing] = useState(false);
-  console.log("emails", emails);
 
   useEffect(() => {
     loadEmails();

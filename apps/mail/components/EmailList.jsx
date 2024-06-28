@@ -6,7 +6,6 @@ export function EmailList({
   onRemoveEmail,
   handleStarClick,
 }) {
-  console.log("emails", emails);
   if (!emails || emails.length === 0) return <div>No emails found</div>;
 
   return (

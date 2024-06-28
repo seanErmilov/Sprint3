@@ -22,7 +22,6 @@ const filterBy = {
 
 function query(filterBy = {}) {
   return storageService.query(EMAIL_KEY).then((emails) => {
-    console.log("emails", emails);
     if (filterBy.folder) {
       if (filterBy.folder === "starred") {
         emails = emails.filter((email) => email.isStarred);

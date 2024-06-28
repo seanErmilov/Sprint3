@@ -10,7 +10,6 @@ const FOLDER_ICONS = {
 };
 
 const FolderItem = ({ folderName, onFolderChange, unreadCount }) => {
-  console.log(folderName, "unreadCount", unreadCount);
   return (
     <button
       className="folder-button"
