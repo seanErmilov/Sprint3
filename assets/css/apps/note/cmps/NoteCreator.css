@@ -1,4 +1,5 @@
 .note-creator {
+  transform: translateY(32px);
   padding: 12px 16px;
   border-radius: 8px;
   display: flex;
@@ -6,8 +7,7 @@
   width: 300px;
   margin: 0 auto; /* Center horizontally */
   border: 1px solid #e8eaed; /* White border */
-  margin-bottom: 64px;
-  margin-top: 32px;
+  margin-bottom: 96px;
 }
 
 .note-creator input {
@@ -59,7 +59,8 @@
 }
 
 .note-creator .note-creator-buttons button:hover {
-  background: #e8eaed;
+  opacity: 0.87;
+  background-color: rgba(154, 160, 166, 0.157);
 }
 
 .note-creator img {

@@ -3,8 +3,8 @@ export function NoteImg(props) {
   const { title, imgUrl } = info
   return (
     <div className='note-img'>
-      <div className='note-title'>{title}</div>
       <img src={imgUrl} alt='' />
+      <div className='note-title'>{title}</div>
     </div>
   )
 }

@@ -3,8 +3,9 @@
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   grid-gap: 16px; /* Increased gap between grid items */
   list-style: none;
-  margin: 0;
+  margin: 0 34px;
   padding: 0; /* Remove default padding */
+  background-color: var(--note--dark-theme-black);
 }
 
 .note {
@@ -14,19 +15,39 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* Ensures the note doesn't grow beyond its content */
   max-width: 100%; /* Ensures notes don't exceed their content width */
-
+  max-height: 100%; /* Ensures notes don't exceed their content width */
+  position: relative; /* Add relative positioning to the note for positioning child elements */
   color: #e8eaed;
 }
 
 .note-buttons {
+  opacity: 0; /* Make buttons invisible by default */
   display: flex;
   justify-content: space-between;
+  position: absolute; /* Position the buttons absolutely within the note */
+  bottom: 10px; /* Position the buttons at the bottom of the note */
+  left: 10px; /* Adjust the left position as needed */
+  right: 10px; /* Adjust the right position as needed */
+  transition: opacity 0.3s ease; /* Add transition for smooth appearance */
 }
 
-/* Optional: Adjust button styles */
+.note:hover .note-buttons {
+  opacity: 1; /* Show buttons on hover */
+}
+
 .note-buttons button {
   padding: 5px 10px;
   font-size: 14px;
+  background-color: transparent; /* Make button background transparent */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.note-buttons button img {
+  width: 16px; /* Adjust the size of the icon as needed */
+  height: 16px;
+  filter: invert(
+    100%
+  ); /* Invert icon colors if the icon is black, making it white */
 }
