@@ -77,7 +77,8 @@ export function EmailIndex() {
           className="new-email-button"
           onClick={() => setIsComposing(true)}
         >
-          New Email
+          <i className="fa-solid fa-inbox"></i>
+        New Email
         </button>
         <EmailFolderList onFolderChange={onFolderChange} emails={allEmails} />
       </div>

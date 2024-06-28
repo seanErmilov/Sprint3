@@ -10,7 +10,7 @@ export function EmailPreview({
 
   const onStarClick = (e) => {
     e.stopPropagation();
-    handleStarClick(email.id);
+    handleStarClick(email.id)
   };
   return (
     <div className="email-preview" onClick={onClick}>
@@ -23,10 +23,10 @@ export function EmailPreview({
           className="delete-btn"
           onClick={(e) => {
             e.stopPropagation();
-            onRemoveEmail(email.id);
+            onRemoveEmail(email.id)
           }}
         >
-          <i class="fa-solid fa-trash-can"></i>
+          <i className="fa-solid fa-trash-can"></i>
         </button>
       </div>
       <div className={"email-subject" + readClass}>{email.subject}</div>
@@ -39,5 +39,6 @@ export function EmailPreview({
         )}
       </div>
     </div>
-  );
+  )
 }
+

@@ -27,7 +27,7 @@ export function EmailDetails({ emailId, onBack, onRemoveEmail }) {
       <div className='email-body'>{email.body}</div>
       <button onClick={onBack}>Back</button>
       <button onClick={handleDelete}>
-      <i class="fa-solid fa-trash-can"></i>
+      <i className="fa-solid fa-trash-can"></i>
       </button>
     </section>
   )

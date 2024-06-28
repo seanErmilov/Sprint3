@@ -11,6 +11,7 @@ const FOLDER_ICONS = {
 
 const FolderItem = ({ folderName, onFolderChange, unreadCount }) => {
   return (
+    <section className="email-folder-list">
     <button
       className="folder-button"
       onClick={() => onFolderChange(folderName)}
@@ -19,6 +20,7 @@ const FolderItem = ({ folderName, onFolderChange, unreadCount }) => {
       <span>{folderName.charAt(0).toUpperCase() + folderName.slice(1)}</span>
       <span>{unreadCount}</span>
     </button>
+    </section>
   );
 };
 
