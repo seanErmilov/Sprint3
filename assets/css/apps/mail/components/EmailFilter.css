@@ -1,0 +1,36 @@
+.email-filter {
+  margin-bottom: 20px;
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+
+    input {
+      padding: 10px;
+      border: 0;
+      outline: 0;
+      box-sizing: border-box;
+      background: none;
+    }
+
+    i {
+      padding: 10px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.3s;
+
+      &:hover {
+        border-radius: 50px;
+        background-color: #dadada;
+      }
+    }
+  }
+}
