@@ -10,6 +10,11 @@ export function NoteIndex() {
 
   useEffect(() => {
     loadNotes()
+    document.body.style.backgroundColor = '#f0f0f0'
+
+    return () => {
+      document.body.style.backgroundColor = ''
+    }
     // setSearchParams(filterBy)
   }, [])
 

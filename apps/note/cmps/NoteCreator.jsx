@@ -128,17 +128,41 @@ export function NoteCreator({ onSaveNote }) {
         )}
         <div className='note-creator-buttons'>
           <button name='pin' type='button' onClick={onSetPined}>
-            <img src='../../../assets/img/icon/pin.svg' alt='Pin' />
+            {isPinned && (
+              <img
+                src='../../../assets/img/icon/pin.svg'
+                alt='Pin'
+                title='Pin note'
+              />
+            )}
+            {!isPinned && (
+              <img
+                src='../../../assets/img/icon/unpin.svg'
+                alt='Pin'
+                title='Pin note'
+              />
+            )}
           </button>
           <button type='button' onClick={onSetNoteTodos}>
-            <img src='../../../assets/img/icon/check-note.svg' alt='Pin' />
+            <img
+              src='../../../assets/img/icon/check-note.svg'
+              alt='New list'
+              title='New list'
+            />
           </button>
           <button type='button' onClick={onSetImg}>
-            <img src='../../../assets/img/icon/img-icon.svg' alt='Pin' />
+            <img
+              src='../../../assets/img/icon/img-icon.svg'
+              alt='Add img'
+              title='Add img'
+            />
           </button>
           <button>
-            {' '}
-            <img src='../../../assets/img/icon/done.svg' alt='Pin' />
+            <img
+              src='../../../assets/img/icon/done.svg'
+              alt='Save'
+              title='Save'
+            />
           </button>
         </div>
       </form>

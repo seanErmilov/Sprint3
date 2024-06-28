@@ -1,0 +1,29 @@
+/* styles.css */
+.note-img {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Adjust width as needed */
+  max-width: 400px; /* Optional: limit the max width */
+  margin: 0 auto; /* Center the note */
+  border: 1px solid #ccc; /* Optional: border around the note */
+  border-radius: 8px; /* Optional: rounded corners */
+  overflow: hidden; /* Clip overflowing content */
+}
+
+.note-img img {
+  width: 100%; /* Make the image fill the width of the container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove bottom space of images */
+}
+
+.note-title {
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1.2em; /* Adjust font size as needed */
+  color: var(--note--dark-theme-white); /* Text color */
+  border-top: 1px solid #ccc; /* Optional: top border */
+}
