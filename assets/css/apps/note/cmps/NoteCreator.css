@@ -1,11 +1,13 @@
 .note-creator {
-  padding: 20px;
+  padding: 12px 16px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   width: 300px;
   margin: 0 auto; /* Center horizontally */
   border: 1px solid #e8eaed; /* White border */
+  margin-bottom: 64px;
+  margin-top: 32px;
 }
 
 .note-creator input {

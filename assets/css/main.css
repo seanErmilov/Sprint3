@@ -24,7 +24,9 @@
 /* note */
 @import './apps/note/cmps/NoteList.css'; /* @import './apps/mail/cmps/MailList.css'; */
 @import './apps/note/cmps/NoteCreator.css'; /* @import './apps/mail/cmps/MailList.css'; */
+@import './apps/note/cmps/NoteImg.css'; /* @import './apps/mail/cmps/MailList.css'; */
 @import './apps/note/pages/NoteIndex.css'; /* @import './apps/mail/cmps/MailList.css'; */
+@import './apps/note/basics/base.css'; /* @import './apps/mail/cmps/MailList.css'; */
 
 /* emails  */
 
