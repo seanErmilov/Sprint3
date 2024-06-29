@@ -1,12 +1,29 @@
 header {
-  background: lightcyan;
+  /* background: #F3F8FF; */
+  /* width: 100%; */
+  background-image: url('../../../assets/img/cool-background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-bottom: 2px solid white;
 }
 
 .app-header {
   display: flex;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 5px 20px;
+  align-items: center;
+  
+  img{
+    display: flex;
+    width: auto;
+    height: 75px;
+  }
+  
+  nav{
+    display: flex;
+    margin-right: 2%;
+  }
 }
 
 nav a {
@@ -18,7 +35,6 @@ nav a:active {
 }
 
 nav a.active {
-  color: darkblue;
   font-weight: bold;
   text-decoration: overline;
 }
