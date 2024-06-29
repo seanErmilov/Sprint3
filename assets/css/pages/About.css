@@ -2,7 +2,16 @@
 .about-us {
   padding: 50px 20px;
   text-align: center;
-  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-image: url("../../../assets/img/home-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .about-us h1 {
@@ -19,7 +28,7 @@
 }
 
 .team-member {
-  background-color: #f9f9f9;
+  background-color: rgba(245, 245, 245, 0.85);
   border-radius: 10px;
   padding: 20px;
   max-width: 300px;
