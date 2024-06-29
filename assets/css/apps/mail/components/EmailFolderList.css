@@ -20,7 +20,7 @@
 
     &:hover,
     &.selected {
-      background: rgba(0, 0, 0, 0.1);
+      background: #d3e3fd;
     }
 
     .folder-icon {
