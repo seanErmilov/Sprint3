@@ -5,11 +5,10 @@
 
   display: flex;
   gap: 20px;
-  margin: 20px;
+  padding: 20px;
   font-family: arial, helvetica, sans-serif;
   height: 100%;
   background-color: #f6f8fc;
-
 
   .new-email-button {
     display: flex;

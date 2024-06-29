@@ -1,5 +1,6 @@
 /* note index */
 .note-index {
-  min-height: 100vh;
   background-color: var(--note--dark-theme-black);
+
+  --border-radius: 8px;
 }

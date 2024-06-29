@@ -1,11 +1,11 @@
-const { useState, useEffect } = React;
+const { useState, useEffect } = React
 
 const SearchBar = ({ onSetFilter }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
-    onSetFilter(searchTerm);
-  }, [searchTerm]);
+    onSetFilter(searchTerm)
+  }, [searchTerm])
 
   return (
     <div className="search-bar">
@@ -17,54 +17,67 @@ const SearchBar = ({ onSetFilter }) => {
         onChange={(ev) => setSearchTerm(ev.target.value)}
       />
     </div>
-  );
-};
+  )
+}
 
 export function EmailFilter({ filterBy, onSetFilter }) {
-  const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy });
+  const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
 
   useEffect(() => {
-    onSetFilter(filterByToEdit);
-  }, [filterByToEdit]);
+    onSetFilter(filterByToEdit)
+  }, [filterByToEdit])
 
   function handleChange({ target }) {
-    const field = target.name;
-    let value = target.value;
+    const field = target.name
+    let value = target.value
 
     switch (target.type) {
       case "number":
       case "range":
-        value = +value;
-        break;
+        value = +value
+        break
 
       case "checkbox":
-        value = target.checked;
-        break;
+        value = target.checked
+        break
 
       default:
-        break;
+        break
     }
 
-    setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }));
+    setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
 
   const handleSearchChange = (value) => {
-    const txt = value;
-    setFilterByToEdit({ ...filterByToEdit, txt });
-  };
-
-  function onSubmitFilter(ev) {
-    ev.preventDefault();
-    onSetFilter(filterByToEdit);
+    const txt = value
+    setFilterByToEdit({ ...filterByToEdit, txt })
   }
 
-  const { txt, isRead, isStarred, folder } = filterByToEdit;
+  function onSubmitFilter(ev) {
+    ev.preventDefault()
+    onSetFilter(filterByToEdit)
+  }
+
+  function handleUnreadClick() {
+    setFilterByToEdit({
+      ...filterByToEdit,
+      isRead: filterBy.isRead === false ? undefined : false,
+    })
+  }
+
+  const { txt, isRead, isStarred, folder } = filterByToEdit
 
   return (
     <section className="email-filter">
       <form onSubmit={onSubmitFilter}>
         <SearchBar onSetFilter={handleSearchChange} />
+        <button
+          onClick={handleUnreadClick}
+          className={"button" + (filterBy.isRead === false ? " active" : "")}
+        >
+          Unread
+        </button>
       </form>
     </section>
-  );
+  )
 }

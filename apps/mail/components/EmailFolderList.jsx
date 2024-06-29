@@ -1,6 +1,7 @@
-import { mailService } from "../services/mail.service.js";
 
-const FOLDERS = ["inbox", "starred", "sent", "trash", "draft"];
+import { mailService } from "../services/mail.service.js"
+
+const FOLDERS = ["inbox", "starred", "sent", "trash", "draft"]
 const FOLDER_ICONS = {
   inbox: "fa-inbox",
   starred: "fa-star",
@@ -9,22 +10,25 @@ const FOLDER_ICONS = {
   draft: "fa-file",
 };
 
-const FolderItem = ({ folderName, onFolderChange, unreadCount }) => {
+const FolderItem = ({
+  folderName,
+  onFolderChange,
+  unreadCount,
+  isSelected,
+}) => {
   return (
-    <section className="email-folder-list">
     <button
-      className="folder-button"
+      className={"folder-button" + (isSelected ? " selected" : "")}
       onClick={() => onFolderChange(folderName)}
     >
       <i className={`fa-solid ${FOLDER_ICONS[folderName]}`}></i>
       <span>{folderName.charAt(0).toUpperCase() + folderName.slice(1)}</span>
       <span>{unreadCount}</span>
     </button>
-    </section>
-  );
-};
+  )
+}
 
-export function EmailFolderList({ onFolderChange, emails }) {
+export function EmailFolderList({ onFolderChange, emails, selectedFolder }) {
   const unreadCount = mailService.getUnreadCount(emails);
   return (
     <section className="email-folder-list">
@@ -34,8 +38,9 @@ export function EmailFolderList({ onFolderChange, emails }) {
           folderName={folderName}
           onFolderChange={onFolderChange}
           unreadCount={unreadCount[folderName]}
+          isSelected={selectedFolder === folderName}
         />
       ))}
     </section>
-  );
+  )
 }

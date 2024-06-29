@@ -1,50 +1,51 @@
 const { useState, useEffect } = React;
-import { mailService } from "../services/mail.service.js";
-import { EmailList } from "../components/EmailList.jsx";
-import { EmailFilter } from "../components/EmailFilter.jsx";
-import { EmailDetails } from "../components/EmailDetails.jsx";
-import { EmailCompose } from "../components/EmailCompose.jsx";
-import { EmailFolderList } from "../components/EmailFolderList.jsx";
+import { mailService } from "../services/mail.service.js"
+import { EmailList } from "../components/EmailList.jsx"
+import { EmailFilter } from "../components/EmailFilter.jsx"
+import { EmailDetails } from "../components/EmailDetails.jsx"
+import { EmailCompose } from "../components/EmailCompose.jsx"
+import { EmailFolderList } from "../components/EmailFolderList.jsx"
 
 export function EmailIndex() {
-  const [allEmails, setAllEmails] = useState([]);
-  const [emails, setEmails] = useState([]);
-  const [selectedFolder, setSelectedFolder] = useState("inbox");
-  const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter());
+  const [allEmails, setAllEmails] = useState([])
+  const [emails, setEmails] = useState([])
+  const [selectedFolder, setSelectedFolder] = useState("inbox")
+  const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
   const [selectedEmailId, setSelectedEmailId] = useState(null);
   const [isComposing, setIsComposing] = useState(false);
+  console.log("filterBy", filterBy);
 
   useEffect(() => {
     loadEmails();
-  }, [selectedFolder, filterBy]);
+  }, [selectedFolder, filterBy])
 
   function loadEmails() {
     mailService
       .query({ ...filterBy, folder: selectedFolder })
       .then((emails) => {
-        return setEmails(emails);
+        return setEmails(emails)
       })
       .catch((err) => {
-        console.log("Error loading emails:", err);
+        console.log("Error loading emails:", err)
       });
 
     mailService
       .query()
       .then((emails) => {
-        return setAllEmails(emails);
+        return setAllEmails(emails)
       })
       .catch((err) => {
-        console.log("Error loading emails:", err);
+        console.log("Error loading emails:", err)
       });
   }
 
   async function onRemoveEmail(emailId) {
     try {
-      await mailService.remove(emailId);
+      await mailService.remove(emailId)
       loadEmails();
       setSelectedEmailId(null);
     } catch (err) {
-      console.log("Problems removing email:", err);
+      console.log("Problems removing email:", err)
     }
   }
 
@@ -59,12 +60,12 @@ export function EmailIndex() {
 
   async function onSelectEmailId(emailId) {
     setSelectedEmailId(emailId);
-    await mailService.markAsRead(emailId);
+    await mailService.markAsRead(emailId)
     loadEmails();
   }
 
   async function handleStarClick(emailId) {
-    await mailService.toggleStar(emailId);
+    await mailService.toggleStar(emailId)
     loadEmails();
   }
 
@@ -78,9 +79,13 @@ export function EmailIndex() {
           onClick={() => setIsComposing(true)}
         >
           <i className="fa-sharp fa-solid fa-pen"></i>
-        New Email
+          New Email
         </button>
-        <EmailFolderList onFolderChange={onFolderChange} emails={allEmails} />
+        <EmailFolderList
+          onFolderChange={onFolderChange}
+          emails={allEmails}
+          selectedFolder={selectedFolder}
+        />
       </div>
       <div className="main">
         {!selectedEmailId && (
@@ -106,5 +111,5 @@ export function EmailIndex() {
         {isComposing && <EmailCompose onClose={() => setIsComposing(false)} />}
       </div>
     </section>
-  );
+  )
 }
